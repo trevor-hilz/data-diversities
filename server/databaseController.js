@@ -1,35 +1,30 @@
-// const databaseController = {
-//   request: (req, res, next) => {
-//   console.log('---> ENTERING REQUEST CONTROLLER <---');
-//   res.locals.request = console.log('hello world');
-//   return res.locals.request;
-// }
-// }
-
-// export default databaseController;
-
-const controller = {};
 import Biodiversity from './model.js';
+import pkg from 'pg';
+const { Client } = pkg;
 
-controller.request = async (req, res, next) => {
-  try {
-    console.log('---> ENTERING REQUEST CONTROLLER <---');
-    const test = await Biodiversity.findAll({
-      limit: 10,
-    });
+const client = new Client({
+  connectionString:
+    'postgresql://postgres:LeMaVor89@172.27.22.33:5432/nys_biodiversity',
+});
 
-    // if (!test || test.length === 0) {
-    //   return res.status(404).json({ message: 'No data found' });
-    // }
+client.connect();
 
-    res.locals.request = test;
+const databaseController = {
+  request: async (req, res, next) => {
+    try {
+      console.log('---> ENTERING REQUEST CONTROLLER <---');
 
-    console.log('data received: ', JSON.stringify(test));
+      const test = await client.query(
+        'SELECT * FROM nys_biodiversity LIMIT 10'
+      );
 
-    return next();
-  } catch (error) {
-    return res.status(500).json({ error: 'Internal server error' });
-  }
+      res.locals.request = test.rows;
+
+      return next();
+    } catch (error) {
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+  },
 };
 
-export default controller;
+export default databaseController;
