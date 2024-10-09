@@ -1,13 +1,17 @@
 import axios from 'axios';
-import React from 'react';
+import React, {useState} from 'react';
 
-const gatherData = () => {
-  axios.get('http://localhost:3000/request').then(function (response) {
-    console.log(response.data);
-    return response.data;
-  });
-};
+
 const CardContainer = () => {
+  const gatherData = () => {
+    axios.get('http://localhost:3000/request').then(function (response) {
+      console.log(response.data);
+      setCards(response.data);
+    });
+  };
+
+  const [cards, setCards] = useState([]);
+  
   return (
     <div>
       I am a card container!
