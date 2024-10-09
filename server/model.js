@@ -1,11 +1,11 @@
 import { Sequelize, DataTypes, Model, STRING } from 'sequelize';
 
 // laptop
-const sequelize = new Sequelize('postgresql://postgres:LeMaVor89@172.21.1.54:5432/nys_biodiversity');
+// const sequelize = new Sequelize('postgresql://postgres:LeMaVor89@172.21.1.54:5432/nys_biodiversity');
 //desktop
-// const sequelize = new Sequelize(
-//   'postgresql://postgres:LeMaVor89@172.27.22.33:5432/nys_biodiversity'
-// );
+const sequelize = new Sequelize(
+  'postgresql://postgres:LeMaVor89@172.27.22.33:5432/nys_biodiversity'
+);
 
 (async () => {
   try {

@@ -2,16 +2,16 @@ import pkg from 'pg';
 const { Client } = pkg;
 
 // laptop
-const client = new Client({
-connectionString:
-'postgresql://postgres:LeMaVor89@172.21.1.54:5432/nys_biodiversity',
-});
+// const client = new Client({
+// connectionString:
+// 'postgresql://postgres:LeMaVor89@172.21.1.54:5432/nys_biodiversity',
+// });
 
 //desktop
-// const client = new Client({
-//   connectionString:
-//     'postgresql://postgres:LeMaVor89@172.27.22.33:5432/nys_biodiversity',
-// });
+const client = new Client({
+  connectionString:
+    'postgresql://postgres:LeMaVor89@172.27.22.33:5432/nys_biodiversity',
+});
 
 client.connect();
 

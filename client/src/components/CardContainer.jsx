@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, {useState} from 'react';
-
+import React, { useState } from 'react';
+import CardCreator from './CardCreator';
 
 const CardContainer = () => {
   const gatherData = () => {
@@ -11,10 +11,20 @@ const CardContainer = () => {
   };
 
   const [cards, setCards] = useState([]);
-  
+
   return (
     <div>
-      I am a card container!
+      <div
+      // style={{
+      // border: 'solid, grey, 1px',
+      //   display: 'grid',
+      //   gridTemplateRows: '1fr 1fr repeat(5, 1fr)',
+      //   gridTemplateColumns: '1fr',
+      //   gap: '10px',
+      // }}
+      >
+        <CardCreator cards={cards} />
+      </div>
       <button onClick={gatherData}>Click Me!</button>
     </div>
   );
