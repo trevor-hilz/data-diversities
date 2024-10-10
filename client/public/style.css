@@ -69,3 +69,9 @@ th {
   border: solid black 1px;
   /* color: white; */
 }
+
+.Footer {
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}

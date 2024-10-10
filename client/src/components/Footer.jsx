@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div className='Footer'>
       NYS Biodiversity Database Lookup | &#169; 2024 Hilz Media, LLC
     </div>
   );

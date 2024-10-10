@@ -1,4 +1,5 @@
 const Counties = [
+  'All',
   'Albany',
   'Allegany',
   'Athlantic Ocean and Long Island Sound',
@@ -66,8 +67,9 @@ const Counties = [
   'Wyoming',
   'Yates',
 ];
-const Categories = ['Animal', 'Plant', 'Natural Community'];
+const Categories = ['All', 'Animal', 'Plant', 'Natural Community'];
 const TaxonomicGroups = [
+  'All',
   'Amphibians',
   'Animal Assemblages',
   'Bees, Wasps and Ants',
@@ -97,4 +99,21 @@ const TaxonomicGroups = [
   'Uplands',
 ];
 
-export { Counties, Categories, TaxonomicGroups };
+const Sortings = [
+  'County',
+  'Category',
+  'Taxonomic Group',
+  'Taxonomic Subgroup',
+  'Scientific Name',
+  'Common Name',
+  'Year Last Documented',
+  'NY Listing Status',
+  'Federal Listing Status',
+  'State Conservation Rank',
+  'Global Conservation Rank',
+  'Distribution Status',
+];
+
+const Directions = ['ASC', 'DESC'];
+
+export { Counties, Categories, TaxonomicGroups, Sortings, Directions };
