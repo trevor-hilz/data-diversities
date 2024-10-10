@@ -20,7 +20,6 @@ const databaseController = {
   request: async (req, res, next) => {
     try {
       console.log('---> ENTERING REQUEST CONTROLLER <---');
-      console.log(req.query.sorting);
 
       let county = req.query.county;
       let category = req.query.category;
@@ -35,7 +34,14 @@ const databaseController = {
       if (county === 'All') county = '%';
       if (category === 'All') category = '%';
       if (taxonomicGroup === 'All') taxonomicGroup = '%';
-      console.log(county, category, taxonomicGroup, sorting, direction);
+      console.log(
+        'request: ',
+        county,
+        category,
+        taxonomicGroup,
+        sorting,
+        direction
+      );
 
       const query = `SELECT * FROM nys_biodiversity WHERE county LIKE $1 AND category LIKE $2 AND "taxonomicGroup" LIKE $3 ORDER BY "${sorting}" ${direction}`;
 
@@ -46,6 +52,26 @@ const databaseController = {
       ]);
 
       res.locals.request = test.rows;
+
+      return next();
+    } catch (error) {
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+  },
+
+  custom: async (req, res, next) => {
+    try {
+      console.log('---> ENTERING CUSTOM CONTROLLER <---');
+      let input = req.query.input;
+      let custom = req.query.custom;
+      custom = SortingOptions[custom];
+
+      console.log('Controller: ', input, custom);
+
+      const query = `SELECT * from nys_biodiversity WHERE "${custom}" LIKE $1 ORDER BY County`;
+      const test = await client.query(query, [`%${input}%`]);
+
+      res.locals.custom = test.rows;
 
       return next();
     } catch (error) {

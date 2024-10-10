@@ -42,10 +42,31 @@ const CardContainer = () => {
         setCards(response.data);
       });
   };
+
+  const CustomSearch = () => {
+    const customSelection = document.getElementById('customSelector');
+    const custom = customSelection.value;
+
+    const inputSelection = document.getElementById('customInput');
+    const input = inputSelection.value;
+
+    console.log(custom, input);
+    axios
+      .get('http://localhost:3000/request/custom/', {
+        params: {
+          input: input,
+          custom: custom,
+        },
+      })
+      .then(function (response) {
+        setCards(response.data);
+      });
+  };
+
   const [cards, setCards] = useState([]);
 
   return (
-    <div style={{ gap: '10px' }}>
+    <div style={{ gap: '10px', marginTop: '2em' }}>
       <button onClick={gatherData} style={{ marginRight: '10px' }}>
         Search
       </button>
@@ -104,7 +125,23 @@ const CardContainer = () => {
           </option>
         ))}
       </select>
-
+      <div style={{ marginTop: '2em' }}>
+        <label style={{ marginRight: '1em' }}>Custom Search: </label>
+        <button onClick={CustomSearch} style={{ marginRight: '10px' }}>
+          Search
+        </button>
+        <input id='customInput' placeholder='Enter Details Here'></input>
+        <select id='customSelector' style={{ marginLeft: '10px' }}>
+          <option value='' disabled selected>
+            --- Select Criteria ---
+          </option>
+          {Sortings.map((sorting, index) => (
+            <option key={index} value={sorting}>
+              {sorting}
+            </option>
+          ))}
+        </select>
+      </div>
       <div>
         <CardCreator cards={cards} />
       </div>
