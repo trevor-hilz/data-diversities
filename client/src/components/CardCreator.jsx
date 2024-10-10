@@ -61,6 +61,7 @@ const CardCreator = ({ cards }) => {
     // </div>
     <div>
       <table>
+        <caption>NYS Biodiversity Table</caption>
         <thead>
           <tr style={{ textDecoration: 'underline' }}>
             <th>County</th>
@@ -77,7 +78,6 @@ const CardCreator = ({ cards }) => {
             <th>Distribution Status</th>
           </tr>
         </thead>
-
         <tbody>
           {cards.map((card, index) => (
             <tr>

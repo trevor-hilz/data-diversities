@@ -21,7 +21,7 @@ body::before {
 
 .wrapper {
   height: 100%;
-  max-width: 1200px;
+  max-width: 1080px;
   margin-inline: auto;
   padding-left: 10px;
   padding-right: 10px;
@@ -43,5 +43,29 @@ body::before {
 
 .rowStyling {
   border: black solid 1px;
+  text-align: center;
+}
+
+tr:nth-of-type(2n) {
+  background: hsla(202, 86%, 80%, 0.3);
+}
+
+table {
   border-collapse: collapse;
+  width: 100%;
+}
+
+caption {
+  background: hsl(0, 0%, 25%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  margin-top: 2rem;
+}
+
+th {
+  background: hsl(202, 86%, 80%, 0.5);
+  border: solid black 1px;
+  /* color: white; */
 }
