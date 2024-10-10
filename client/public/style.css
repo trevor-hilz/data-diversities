@@ -2,11 +2,6 @@ body,
 html {
   height: 100%;
   margin: 0;
-  /* background-image: url('./ny-countryside-background.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  filter: blur(1rem); */
 }
 
 body::before {
@@ -26,22 +21,27 @@ body::before {
 
 .wrapper {
   height: 100%;
-  max-width: 960px;
+  max-width: 1200px;
   margin-inline: auto;
   padding-left: 10px;
   padding-right: 10px;
   background: rgb(255, 255, 255);
-  color: rgb(172, 172, 172);
+  color: rgb(41, 41, 41);
 }
 
-.cardMap {
+/* .cardMap {
   border: solid 2px black;
   border-radius: 5px;
   padding: 1em;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   color: black;
-}
+} */
 
-.cardRow {
+/* .cardRow {
   font-weight: 800;
+} */
+
+.rowStyling {
+  border: black solid 1px;
+  border-collapse: collapse;
 }

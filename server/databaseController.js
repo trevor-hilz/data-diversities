@@ -21,7 +21,7 @@ const databaseController = {
       console.log('---> ENTERING REQUEST CONTROLLER <---');
 
       const test = await client.query(
-        "SELECT * FROM nys_biodiversity WHERE County = 'Bronx' LIMIT 10"
+        "SELECT * FROM nys_biodiversity WHERE County = 'Bronx'"
       );
 
       res.locals.request = test.rows;
