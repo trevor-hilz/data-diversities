@@ -54,6 +54,9 @@ tr:nth-of-type(2n) {
 table {
   border-collapse: collapse;
   width: 100%;
+  table-layout: fixed;
+  max-width: 1080px;
+  word-wrap: normal;
 }
 
 caption {
