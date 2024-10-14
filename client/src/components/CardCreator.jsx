@@ -86,9 +86,7 @@ const CardCreator = ({ cards }) => {
               <td className='rowStyling'>{card.taxonomicGroup}</td>
               <td className='rowStyling'>{card.taxonomicSubgroup}</td>
               <td className='rowStyling'>{card.scientificName}</td>
-              <td className='rowStyling' style={{ backgroundColor: 'yellow' }}>
-                {card.commonName}
-              </td>
+              <td className='rowStyling'>{card.commonName}</td>
               <td className='rowStyling'>{card.yearLastDocumented}</td>
               <td className='rowStyling'>{card.nyListingStatus}</td>
               <td className='rowStyling'>{card.federalListingStatus}</td>

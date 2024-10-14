@@ -25,8 +25,8 @@ body::before {
   margin-inline: auto;
   padding-left: 10px;
   padding-right: 10px;
-  background: rgb(255, 255, 255);
-  color: rgb(41, 41, 41);
+  background: #223240;
+  color: #d3d3d3;
 }
 
 /* .cardMap {
@@ -74,4 +74,24 @@ th {
   text-align: center;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+}
+
+.SearchButtons {
+  text-align: center;
+  min-width: 100px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.SearchBoxParent {
+  display: flex;
+  justify-content: space-around;
+}
+
+.RefineSearch {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  min-width: 125px;
+  gap: 10px;
 }
