@@ -69,6 +69,9 @@ const CardContainer = () => {
     <div style={{ marginTop: '2em' }}>
       <div className='SearchBoxParent'>
         <div className='RefineSearch'>
+          <label style={{ textAlign: 'center', fontSize: '18px' }}>
+            Standard Search
+          </label>
           <select id='countySelector' className='SearchButtons'>
             <option value='' disabled selected>
               Select a County
@@ -127,6 +130,9 @@ const CardContainer = () => {
         </div>
         <div>
           <div className='RefineSearch'>
+            <label style={{ textAlign: 'center', fontSize: '18px' }}>
+              Keyword Search
+            </label>
             <input id='customInput' placeholder='Enter Details Here'></input>
             <select id='customSelector' className='SearchButtons'>
               <option value='' disabled selected>

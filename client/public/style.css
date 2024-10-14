@@ -27,6 +27,7 @@ body::before {
   padding-right: 10px;
   background: #223240;
   color: #d3d3d3;
+  border-radius: 25px;
 }
 
 /* .cardMap {
