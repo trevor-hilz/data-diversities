@@ -28,6 +28,18 @@ const CardContainer = () => {
     const directionSelection = document.getElementById('directionSelector');
     const selectedDirection = directionSelection.value;
 
+    if (
+      !selectedDirection ||
+      !selectedSorting ||
+      !selectedCategory ||
+      !selectedCounty ||
+      !selectedTaxonomicGroup
+    ) {
+      return alert(
+        'Not all fields provided. Please select an option for all fields'
+      );
+    }
+
     axios
       .get('http://localhost:3000/request/', {
         params: {
@@ -50,7 +62,10 @@ const CardContainer = () => {
     const inputSelection = document.getElementById('customInput');
     const input = inputSelection.value;
 
-    console.log(custom, input);
+    if (!custom || !input) {
+      return alert('Both fields are required.');
+    }
+
     axios
       .get('http://localhost:3000/request/custom/', {
         params: {
