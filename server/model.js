@@ -1,9 +1,6 @@
 import { Sequelize, DataTypes, Model, STRING } from 'sequelize';
 import sequelize from './sequelize.js';
 
-// laptop
-// const sequelize = new Sequelize('postgresql://postgres:LeMaVor89@172.21.1.54:5432/nys_biodiversity');
-
 class Biodiversity extends Model {}
 
 Biodiversity.init(
@@ -73,7 +70,5 @@ sequelize
   .catch((error) => {
     console.error('Error syncing the test database:', error);
   });
-
-console.log('model: ', Biodiversity === sequelize.models.Biodiversity);
 
 export default Biodiversity;

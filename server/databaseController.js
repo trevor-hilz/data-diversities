@@ -7,8 +7,6 @@ import { Op } from 'sequelize';
 const databaseController = {
   request: async (req, res, next) => {
     try {
-      console.log('---> ENTERING REQUEST CONTROLLER <---');
-
       let county = req.query.county;
       let category = req.query.category;
       let taxonomicGroup = req.query.taxonomicGroup;
@@ -51,19 +49,17 @@ const databaseController = {
 
   custom: async (req, res, next) => {
     try {
-      console.log('---> ENTERING CUSTOM CONTROLLER <---');
       let input = req.query.input;
       let custom = req.query.custom;
       custom = SortingOptions[custom];
 
       console.log('Controller: ', input, custom);
 
-      // Use Sequelize raw query as an alternative, or modify to use findAll
       const results = await sequelize.query(
         `SELECT * from nys_biodiversity WHERE "${custom}" LIKE :input ORDER BY County`,
         {
           replacements: { input: `%${input}%` },
-          type: sequelize.QueryTypes.SELECT, // Return raw data as an array of objects
+          type: sequelize.QueryTypes.SELECT,
         }
       );
 
