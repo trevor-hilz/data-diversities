@@ -1,7 +1,11 @@
 import React from 'react';
 
 const Header = () => {
-  return <div>This is a Header!</div>;
+  return (
+    <h1 style={{ textAlign: 'center', paddingTop: '1em' }}>
+      Welcome to the New York State Biodiversity Database Lookup
+    </h1>
+  );
 };
 
 export default Header;

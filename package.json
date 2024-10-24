@@ -16,15 +16,24 @@
     "@babel/node": "^7.25.7",
     "@babel/preset-env": "^7.25.7",
     "@babel/preset-react": "^7.25.7",
+    "axios": "^1.7.7",
     "babel-loader": "^9.2.1",
+    "cors": "^2.8.5",
     "css-loader": "^7.1.2",
+    "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "html-webpack-plugin": "^5.6.0",
+    "pg": "^8.13.0",
+    "pg-hstore": "^2.3.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "sequelize": "^6.37.3",
     "style-loader": "^4.0.0",
     "webpack": "^5.95.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
+  },
+  "dependencies": {
+    "@sequelize/postgres": "^7.0.0-alpha.43"
   }
 }
