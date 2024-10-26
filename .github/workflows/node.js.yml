@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: '20' # Adjust if using a different version
 
@@ -24,10 +24,19 @@ jobs:
       - name: Install EB CLI
         run: pip install awsebcli --upgrade --user
 
+      - name: Initialize EB CLI
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: |
+          ~/.local/bin/eb init -p node.js <your-application-name> --region $AWS_REGION
+          ~/.local/bin/eb use <your-environment-name>
+
       - name: Deploy to Elastic Beanstalk
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }} # e.g., us-west-2
+          AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
-          ~/.local/bin/eb deploy # Use the full path to `eb` after installing
+          ~/.local/bin/eb deploy
