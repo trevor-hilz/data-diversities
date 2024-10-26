@@ -21,21 +21,27 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install EB CLI
-        run: pip install awsebcli --upgrade --user
+      - name: Install AWS CLI and EB CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
+          pip install awsebcli --upgrade --user
 
-      - name: Initialize EB CLI
+      - name: Configure AWS CLI
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: |
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set region $AWS_REGION
+
+      - name: Initialize EB CLI
         run: |
           ~/.local/bin/eb init biodiversity-app --platform node.js --region us-east-2
           ~/.local/bin/eb use Biodiversity-app-env-1
 
       - name: Deploy to Elastic Beanstalk
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
           ~/.local/bin/eb deploy
