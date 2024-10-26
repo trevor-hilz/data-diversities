@@ -13,7 +13,7 @@ const app = express();
 sequelize;
 
 const corsOptions = {
-  origin: '*',
+  origin: 'http://localhost:3000',
   optionSuccessStatus: 200,
 };
 
