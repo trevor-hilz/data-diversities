@@ -30,8 +30,8 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
-          ~/.local/bin/eb init -p node.js <your-application-name> --region $AWS_REGION
-          ~/.local/bin/eb use <your-environment-name>
+          ~/.local/bin/eb init -p node.js biodiversity-app --region $AWS_REGION
+          ~/.local/bin/eb use Biodiversity-app-env-1
 
       - name: Deploy to Elastic Beanstalk
         env:
