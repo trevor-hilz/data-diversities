@@ -10,6 +10,7 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     globalObject: 'self',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -32,7 +33,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  mode: 'development',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   devServer: {
     port: 3001,
     static: {
