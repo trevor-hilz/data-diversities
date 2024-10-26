@@ -13,7 +13,10 @@ const app = express();
 sequelize;
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000',
+    'http://biodiversity-app-env-1.eba-d5psxzae.us-east-2.elasticbeanstalk.com/',
+  ],
   optionSuccessStatus: 200,
 };
 
