@@ -11,12 +11,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # Updated to v4 for compatibility
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4 # Updated to v4 for Node 20 compatibility
         with:
-          node-version: '20' # Adjust if using a different version
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
@@ -30,7 +30,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
-          ~/.local/bin/eb init -p node.js biodiversity-app --region $AWS_REGION
+          ~/.local/bin/eb init biodiversity-app --platform node.js --region $AWS_REGION
           ~/.local/bin/eb use Biodiversity-app-env-1
 
       - name: Deploy to Elastic Beanstalk
