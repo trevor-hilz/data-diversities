@@ -4,8 +4,9 @@ import { fileURLToPath } from 'url';
 import request from './router.js';
 import sequelize from './model.js';
 import cors from 'cors';
+import 'dotenv/config';
 
-const port = 80;
+const port = 8080;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
