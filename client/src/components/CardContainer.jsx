@@ -41,15 +41,18 @@ const CardContainer = () => {
     }
 
     axios
-      .get('http://localhost:3000/request/', {
-        params: {
-          county: selectedCounty,
-          category: selectedCategory,
-          taxonomicGroup: selectedTaxonomicGroup,
-          sorting: selectedSorting,
-          direction: selectedDirection,
-        },
-      })
+      .get(
+        'http://biodiversity-app-env-1.eba-d5psxzae.us-east-2.elasticbeanstalk.com/request/',
+        {
+          params: {
+            county: selectedCounty,
+            category: selectedCategory,
+            taxonomicGroup: selectedTaxonomicGroup,
+            sorting: selectedSorting,
+            direction: selectedDirection,
+          },
+        }
+      )
       .then(function (response) {
         setCards(response.data);
       });
@@ -67,12 +70,15 @@ const CardContainer = () => {
     }
 
     axios
-      .get('http://localhost:3000/request/custom/', {
-        params: {
-          input: input,
-          custom: custom,
-        },
-      })
+      .get(
+        'http://biodiversity-app-env-1.eba-d5psxzae.us-east-2.elasticbeanstalk.com/request/custom/',
+        {
+          params: {
+            input: input,
+            custom: custom,
+          },
+        }
+      )
       .then(function (response) {
         setCards(response.data);
       });
