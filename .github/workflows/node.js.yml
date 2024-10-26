@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+- name: Checkout code
+  uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
+- name: Set up Node.js
+  uses: actions/setup-node@v3
+  with:
         node-version: '20' # Adjust if using a different version
 
     - name: Install dependencies
