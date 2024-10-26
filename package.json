@@ -4,8 +4,7 @@
   "main": "/client/src/index.jsx",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "start": "concurrently \"npm run server\" \"webpack serve --open\"",
-    "server": "node ./server/server.js"
+    "start": "node server/server.js"
   },
   "type": "module",
   "author": "",

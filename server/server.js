@@ -19,11 +19,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 app.use('/request', request);
 
 app.get('*', (req, res) => {
-  return res.sendFile(path.resolve(__dirname, '../dist/index.html'));
+  return res.sendFile(path.resolve(__dirname, '../dist', 'index.html'));
 });
 
 app.listen(port, (err) => {
