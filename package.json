@@ -2,10 +2,12 @@
   "name": "first-crud",
   "version": "1.0.0",
   "main": "/client/src/index.jsx",
-  "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "start": "node server/server.js"
-  },
+"scripts": {
+  "build": "webpack --config webpack.config.js",
+  "start": "node server/server.js",
+  "client": "webpack serve --config webpack.config.js --mode development",
+  "dev": "concurrently \"npm run start\" \"npm run client\""
+},
   "type": "module",
   "author": "",
   "license": "ISC",

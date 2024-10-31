@@ -30,17 +30,28 @@ body::before {
   border-radius: 25px;
 }
 
-/* .cardMap {
+.cardMap {
   border: solid 2px black;
   border-radius: 5px;
   padding: 1em;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   color: black;
-} */
+  background-color: slategray;
+}
 
-/* .cardRow {
+.cardRow {
   font-weight: 800;
-} */
+}
+
+.md-hidden {
+  display: none;
+}
+
+.md-show {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
 
 .rowStyling {
   border: black solid 1px;
@@ -87,6 +98,7 @@ th {
 .SearchBoxParent {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 1em;
 }
 
 .RefineSearch {
@@ -95,4 +107,13 @@ th {
   max-width: 200px;
   min-width: 125px;
   gap: 10px;
+}
+
+@media (min-width: 1600px) {
+  .md-hidden {
+    display: block;
+  }
+  .md-show {
+    display: none;
+  }
 }
