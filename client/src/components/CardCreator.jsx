@@ -30,7 +30,12 @@ const CardCreator = ({ cards }) => {
               <span className='cardRow'>Scientific Name:</span>{' '}
               {card.scientificName}
             </div>
-            <div style={{ backgroundColor: 'lightgreen', borderRadius: '5px' }}>
+            <div
+              style={{
+                backgroundColor: '#9fd3c7',
+                borderRadius: '5px',
+              }}
+            >
               <span className='cardRow'>Common Name:</span> {card.commonName}
             </div>
             <div>
